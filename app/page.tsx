@@ -8,6 +8,7 @@ export default function Home() {
   return (
     <Grid container spacing={3}>
       {categories.map((cat) => (
+        //@ts-ignore
         <Grid item xs={12} sm={6} md={4} key={cat.slug}>
          <Card>
           <CardActionArea>
