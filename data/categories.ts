@@ -2,6 +2,7 @@ export const categories = [
   {
     slug: 'carabeef',
     name: 'Cara Beef',
+    previewImage: "/images/pierna.jpg",
     items: [
       { name: 'Laman', price: 360, image : '/images/pierna.jpg', unit: 'kg' },
       { name: 'Ribs', price: 290,  image : '/images/ribs.jpg', unit: 'kg' },
