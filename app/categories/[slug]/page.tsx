@@ -5,13 +5,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { categories } from "@/data/categories";
 
-import {
-  Typography,
-  Paper,
-  Button,
-  TextField,
-  Box,
-} from "@mui/material";
+import { Typography, Paper, TextField, Box, Fab } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 
 type Props = {
@@ -31,7 +25,7 @@ export default function CategoryPage({ params }: Props) {
   );
 
   return (
-    <Box>
+    <Box sx={{ position: "relative" }}>
       {/* Title */}
       <Typography variant="h5" gutterBottom>
         {category.name} Prices
@@ -61,9 +55,7 @@ export default function CategoryPage({ params }: Props) {
             />
 
             <Box sx={{ flex: 1 }}>
-              <Typography fontWeight="bold">
-                {item.name}
-              </Typography>
+              <Typography fontWeight="bold">{item.name}</Typography>
               <Typography color="text.secondary">
                 ₱{item.price} / {item.unit}
               </Typography>
@@ -72,21 +64,22 @@ export default function CategoryPage({ params }: Props) {
         </Paper>
       ))}
 
-      {/* Order button */}
-      <Box sx={{ textAlign: "center", mt: 5 }}>
-        <Button
-          fullWidth
-          variant="contained"
-          color="primary"
-          size="large"
-          href="https://m.me/61587143643112"
-          target="_blank"
-          rel="noopener noreferrer"
-          startIcon={<FacebookIcon />}
-        >
-          Order via Messenger
-        </Button>
-      </Box>
+      {/* Floating Messenger Button */}
+      <Fab
+        color="primary"
+        aria-label="Order via Messenger"
+        href="https://m.me/61587143643112"
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={{
+          position: "fixed",
+          bottom: 20,
+          right: 20,
+          zIndex: 9999,
+        }}
+      >
+        <FacebookIcon />
+      </Fab>
     </Box>
   );
 }
